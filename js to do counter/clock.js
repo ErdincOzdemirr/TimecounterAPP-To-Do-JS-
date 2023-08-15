@@ -3,25 +3,42 @@ let myName = document.querySelector("#myName");
 myName.innerHTML = ` ${isim}`;
 
 function zaman() {
-  const tarih = new Date();
+  const date = new Date();
 
-  let saat = tarih.getHours();
-  let dakika = tarih.getMinutes();
-  let saniye = tarih.getSeconds();
-
-  let gun = [
+  let year = date.getFullYear(),
+  month = date.getMonth(),
+  day = date.getDate(),
+  hour = date.getHours(),
+  minute = date.getMinutes(),
+  seconds = date.getSeconds();
+  dayNumber = date.getDay()
+let months = [
+  "Ocak",
+  "Şubat",
+  "Mart",
+  "Nisan",
+  "Mayıs",
+  "Haziran",
+  "Temmuz",
+  "Ağustos",
+  "Eylül",
+  "Ekim",
+  "Kasım",
+  "Aralık",
+];
+let days = [
+    "Pazar",
     "Pazartesi",
     "Salı",
     "Çarşamba",
     "Perşembe",
     "Cuma",
     "Cumartesi",
-    "Pazar",
-  ];
-  let gunName = gun[tarih.getDay()];
+    "Pazar"
+]
 
   let clock = document.querySelector("#myClock");
-  clock.innerHTML = `${saat}:${dakika}:${saniye} ${gunName}`;
+  clock.innerHTML = `${day} ${months[month]} ${year}, ${days[dayNumber]}, ${hour}:${minute}:${seconds}`;
 }
 
 setInterval(zaman, 1000)
